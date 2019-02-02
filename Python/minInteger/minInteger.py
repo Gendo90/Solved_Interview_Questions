@@ -1,4 +1,4 @@
-# find the minimum integer that is NOT contained in a given array
+# find the minimum positive integer that is NOT contained in a given array
 # e.g. [1, 5, 2, 3] would give 4
 
 def solution(A):
