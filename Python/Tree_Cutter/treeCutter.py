@@ -43,11 +43,12 @@ def numCutTrees(A):
         if l==0:
             D = A[1:]
         elif l==len(A)-1:
-            D = A[0:l-1]
+            D = A[0:l]
         else:
-            B = A[0:l-1]
-            C = A[l:]
+            B = A[0:l]
+            C = A[l+1:]
             D = combineArrays(B, C)
+            #print(D)
 
         if(testTreeLine(D)):
             n=n+1
@@ -55,11 +56,11 @@ def numCutTrees(A):
     return n
 
 
-N = [1, 2, 3, 4, 4]
-L = [1, 4, 2, 3]
-C = [1, 3, 5, 3]
-D = [1, 4, 3, 5, 3]
-E = [1, 2, 3, 4, 1]
+N = [1, 2, 3, 4, 4] # 5
+L = [1, 4, 2, 3] # 1
+C = [1, 3, 5, 3] # 2
+D = [1, 4, 3, 5, 3] # 0
+E = [1, 2, 3, 4, 1] # 1
 
 print(numCutTrees(N))
 print(numCutTrees(L))
