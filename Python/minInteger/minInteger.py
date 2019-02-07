@@ -1,20 +1,22 @@
 # find the minimum positive integer that is NOT contained in a given array
 # e.g. [1, 5, 2, 3] would give 4
 
+
+
 def solution(A):
     # write your code in Python 3.6
 
-    n=1
-    i=0
-    for i in range(len(A)):
-        # fancy trick using 'index'
-        try:
-            A.index(n)
-            n+=1
-        except:
-            pass
-    print(n)
-    return n
+    solution.n=1
+
+    def getMin(num):
+        if(solution.n==num):
+            solution.n+=1
+        return num
+
+    B = sorted(A, key=getMin)
+
+    print(solution.n)
+    return solution.n
 
 # test cases
 solution([1, 3, 5, 7]) # 2
