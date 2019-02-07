@@ -22,6 +22,7 @@ function timeout() {
 }
 
 function hoursAMPM(milHours) {
+  milHours = milHours % 24;
   if(milHours<12 && milHours!==0) {
     return ['' + milHours, 'AM'];
   }
@@ -45,15 +46,25 @@ function minuteMod(minutes) {
   }
 }
 
+var N = 0;
+
+var plus = document.getElementById('plus_hour').addEventListener('click', function(){
+  N++;
+})
 
 function render() {
   var now = new Date();
   var app = document.getElementById("app");
-  var hourTime = hoursAMPM(now.getHours());
+  var hourTime = hoursAMPM(now.getHours()+N);
   var minuteTime = minuteMod(now.getMinutes());
   var secondTime = minuteMod(now.getSeconds());
+
   app.innerHTML = '' + hourTime[0] + ':' + minuteTime + ':' + secondTime + ' ' + hourTime[1];
 
 }
+
+
+
+//render()
 
 timeout()
