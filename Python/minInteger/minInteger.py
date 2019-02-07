@@ -8,23 +8,21 @@ def solution(A):
     i=0
     for i in range(len(A)):
         if(A[i]>=0):
-            # split an array on the current element (one array of all values
-            # before, and one array of all values after)
-            B = A[0:i-1]
-            C = A[i+1:]
-            for item in C:
-                B.append(item)
+            # remove the element of A at the current index in the for loop
+            current_elem = A.pop(i)
 
+            if(current_elem==n):
+                n+=1
             # compare the array missing the 'current' index element to the
             # current 'minimum' integer
-            for others in B:
+            for others in A:
                 if(others==(n)):
                     # increment the minimum integer by 1 if any other array
                     # value matches it!
-                    n=n+1
+                    n+=1
+            A.insert(i, current_elem)
     print(n)
     return n
-    pass
 
 # test cases
 solution([1, 3, 5, 7]) # 2
