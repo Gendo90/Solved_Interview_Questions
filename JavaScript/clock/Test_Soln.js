@@ -22,7 +22,12 @@ function timeout() {
 }
 
 function hoursAMPM(milHours) {
-  milHours = milHours % 24;
+  if(milHours>=0){
+    milHours = milHours % 24;
+  }
+  else {
+    milHours = 24 - Math.abs(milHours % 24);
+  }
   if(milHours<12 && milHours!==0) {
     return ['' + milHours, 'AM'];
   }
@@ -50,6 +55,10 @@ var N = 0;
 
 var plus = document.getElementById('plus_hour').addEventListener('click', function(){
   N++;
+})
+
+var minus = document.getElementById('minus_hour').addEventListener('click', function(){
+  N--;
 })
 
 function render() {
