@@ -5,16 +5,10 @@
 
 # function to tell if the tree line meets the condition described
 def testTreeLine(A):
-    height = A[0]
-    for i in range(len(A)):
-        if i==0:
-            pass
-        elif i>0:
-            if(A[i-1]>=height):
-                height = A[i-1]
-            if height>A[i]:
-                return False
-    return True
+    if(A == sorted(A)):
+        return True
+    else:
+        return False
 
 
 # check if solution is possible
