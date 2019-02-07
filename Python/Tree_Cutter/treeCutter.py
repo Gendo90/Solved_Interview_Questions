@@ -22,17 +22,19 @@ def impossible(A):
     maxIndex = A.index(max(A))
     maxBefore = max(A[0:maxIndex])
     minAfter = min(A[maxIndex:])
-    if (minAfter<=(maxBefore-2) and len(A[maxIndex:])>1):
-        return True
-    else:
-        return False
+    if(A[maxIndex]!=A[len(A)-1]):
+        if (minAfter<=(maxBefore-2) and len(A[maxIndex+1:])>1):
+            return True
+        else:
+            return False
 
 # function to see how many trees can be cut down
 def numCutTrees(A):
     n=0
     # check case where no solutions possible
-    #if impossible(A):
-    #    return n
+    # for faster result
+    if impossible(A):
+        return n
 
     for l in range(len(A)):
         if l==0:
