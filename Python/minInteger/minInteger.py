@@ -1,6 +1,7 @@
 # find the minimum positive integer that is NOT contained in a given array
 # e.g. [1, 5, 2, 3] would give 4
-
+import time
+start = time.time()
 
 
 def solution(A):
@@ -26,3 +27,6 @@ solution([7, 6, 5, 4]) # 1
 solution([7, 6, 5, 4, 1, 2]) # 3
 solution([1, 2]) # 3
 solution([-1, 0, 1]) # 2
+
+end = time.time()
+print(end - start)
