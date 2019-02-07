@@ -7,20 +7,12 @@ def solution(A):
     n=1
     i=0
     for i in range(len(A)):
-        if(A[i]>=0):
-            # remove the element of A at the current index in the for loop
-            current_elem = A.pop(i)
-
-            if(current_elem==n):
-                n+=1
-            # compare the array missing the 'current' index element to the
-            # current 'minimum' integer
-            for others in A:
-                if(others==(n)):
-                    # increment the minimum integer by 1 if any other array
-                    # value matches it!
-                    n+=1
-            A.insert(i, current_elem)
+        # fancy trick using 'index'
+        try:
+            A.index(n)
+            n+=1
+        except:
+            pass
     print(n)
     return n
 
