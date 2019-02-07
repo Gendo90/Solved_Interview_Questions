@@ -31,17 +31,10 @@ def numCutTrees(A):
         return n
 
     for l in range(len(A)):
-        if l==0:
-            B = A[1:]
-        elif l==len(A)-1:
-            B = A[0:l]
-        else:
-            B = A[0:l]
-            C = A[l+1:]
-            B.extend(C)
-
-        if(testTreeLine(B)):
+        elem = A.pop(l)
+        if(testTreeLine(A)):
             n=n+1
+        A.insert(l, elem)
 
     return n
 
