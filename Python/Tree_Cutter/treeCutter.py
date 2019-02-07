@@ -16,11 +16,6 @@ def testTreeLine(A):
                 return False
     return True
 
-# make array A append all elements of array B
-def combineArrays(A, B):
-    for item in B:
-        A.append(item)
-    return A
 
 # check if solution is possible
 def impossible(A):
@@ -41,16 +36,15 @@ def numCutTrees(A):
 
     for l in range(len(A)):
         if l==0:
-            D = A[1:]
+            B = A[1:]
         elif l==len(A)-1:
-            D = A[0:l]
+            B = A[0:l]
         else:
             B = A[0:l]
             C = A[l+1:]
-            D = combineArrays(B, C)
-            #print(D)
+            B.extend(C)
 
-        if(testTreeLine(D)):
+        if(testTreeLine(B)):
             n=n+1
 
     return n
