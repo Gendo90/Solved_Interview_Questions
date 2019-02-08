@@ -15,10 +15,9 @@
 **/
 
 function timeout() {
-    setTimeout(function () {
+    setInterval(function () {
         render()
-        timeout();
-    }, 1000);
+    }, 10);
 }
 
 function hoursAMPM(milHours) {
